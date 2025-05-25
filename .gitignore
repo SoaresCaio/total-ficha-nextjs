@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+gym-app-6c075-firebase-adminsdk-fbsvc-79c8d1ce59.json
+sa.base64
