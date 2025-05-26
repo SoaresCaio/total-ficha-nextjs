@@ -3,15 +3,13 @@
 import admin from 'firebase-admin'
 import { NextResponse } from 'next/server'
 
-// Decode your Base64‐encoded service account JSON
+// Decode your Base64 service account JSON
 const serviceAccount = JSON.parse(
-  Buffer.from(
-    process.env.FIREBASE_SERVICE_ACCOUNT_BASE64,
-    'base64'
-  ).toString('utf8')
+  Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_BASE64, 'base64')
+        .toString('utf8')
 )
 
-// Initialize Firebase Admin exactly once
+// Initialize Firebase Admin once
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -20,12 +18,10 @@ if (!admin.apps.length) {
 const db = admin.firestore()
 
 export async function DELETE(request, { params }) {
-  // await params for Next.js dynamic API routes
   const { code, workoutName } = await params
 
   try {
     const docRef = db.collection('workouts').doc(code)
-    // Delete just that workout inside the document
     await docRef.update({
       [`workouts.${workoutName}`]: admin.firestore.FieldValue.delete(),
     })
