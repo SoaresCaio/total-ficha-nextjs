@@ -52,7 +52,7 @@ export default function ClientWorkout() {
     <div className="min-h-screen bg-gray-900 text-white flex justify-center p-4 sm:p-6">
       <div className="w-full max-w-2xl">
         <h1 className="text-3xl font-bold text-center mb-6 text-[#f68635]">
-          Enter Your Code
+          Digit Seu Código
         </h1>
         <div className="flex flex-col sm:flex-row justify-center items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
           <input
@@ -80,7 +80,7 @@ export default function ClientWorkout() {
         {workouts && (
           <div>
             <h2 className="text-2xl font-semibold mb-4 text-[#f68635]">
-              Select Your Workout
+              Selecione Seu Treino
             </h2>
             <select
               value={selectedWorkout}
